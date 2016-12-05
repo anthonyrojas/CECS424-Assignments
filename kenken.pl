@@ -28,7 +28,7 @@ kenken(Puzzle) :-
     E2+F2+F3+F4+F5+E5#=22,
     (E6-F6#=1; F6-E6#=1),
     %Row Values%
-    A ins 1..6,
+    	A ins 1..6,
 	B ins 1..6,
 	C ins 1..6,
 	D ins 1..6,
