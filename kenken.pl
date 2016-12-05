@@ -1,4 +1,4 @@
-:- use_module(library(clpdf)).
+:- use_module(library(clpfd)).
 kenken(Puzzle) :-
     Puzzle=[A,B,C,D,E,F],
     %Rows%
@@ -15,18 +15,43 @@ kenken(Puzzle) :-
     Co4=[A4,B4,C4,D4,E4,F4],
     Co5=[A5,B5,C5,D5,E5,F5],
     Co6=[A6,B6,C6,D6,E6,F6],
-    %Cages%
-    /*Cage1=[A1,B1,B2,B3,C3],
-    Cage2=[A2,A3],
-    Cage3=[A4,A5],
-    Cage4=[A6,B4,B5,B6,C4],
-    Cage5=[C1,D1,D2],
-    Cage6=[C2],
-    Cage7=[C5],
-    Cage8=[C6,D5,D6],
-    Cage9=[D3,D4,E3,E4],
-    Cage10=[E1,F1],
-    Cage11=[E2,F2,F3,F4,F5,E5],
-    Cage12=[E6,F6],*/
-    %Cage constraints%
-    Cage1
+    %Cage Constraints%
+    A1+B1+B2+B3+C3#=24,
+    (A2-A3#=1;A3-A2#=1),
+    (A4//A5#=2;A5//A4#=2),
+    A6*B4*B5*B6*C4#=72,
+    C1+D1+D2#=14,
+    C5#=2,
+    C6*D5*D6#=18,
+    D3*D4*E3*E4#=60,
+    E1*F1#=3,
+    E2+F2+F3+F4+F5+E5#=22,
+    (E6-F6#=1; F6-E6#=1),
+    %Row Values%
+    A ins 1..6,
+	B ins 1..6,
+	C ins 1..6,
+	D ins 1..6,
+	E ins 1..6,
+	F ins 1..6,
+    % All items in a row must be different.
+	all_different(A),
+	all_different(B),
+	all_different(C),
+	all_different(D),
+	all_different(E),
+	all_different(F),
+	% All items in a column must be different.
+	all_different(Co1),
+	all_different(Co2),
+	all_different(Co3),
+	all_different(Co4),
+	all_different(Co5),
+	all_different(Co6),
+    %Output%
+    label(A),
+	label(B),
+	label(C),
+	label(D),
+	label(E),
+	label(F).
