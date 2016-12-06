@@ -65,5 +65,5 @@ Puzzle = [
 [_,_,_,_,_,_]
 ],
 Puzzle = [A,B,C,D,E,F],
-sudoku([A,B,C,D,E,F]).
+kenken([A,B,C,D,E,F]).
 */
