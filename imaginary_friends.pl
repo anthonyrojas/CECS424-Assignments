@@ -54,5 +54,5 @@ all_different([_]).
 
 tell(X, Y, Z) :- 
     write(X), write(' has the imaginary friend of a '), 
-    write(Y), write(' and they went on/in '), 
+    write(Y), write(' and they went on adventure of: '), 
     write(Z), nl.
